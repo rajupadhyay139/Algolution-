@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    
+    vector<int> arr(n);
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int totalSum = 0;
+    for (int i = 0; i < n; i++) {
+        totalSum += arr[i];
+    }
+
+    int leftSum = 0;
+    for (int i = 0; i < n; i++) {
+        totalSum -= arr[i];
+        if (leftSum == totalSum) {
+            cout << "Equilibrium index is: " << i + 1 << endl;
+            return 0;
+        }
+        leftSum += arr[i];
+    }
+
+    cout << -1 << endl;
+    return 0;
+}
