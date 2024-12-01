@@ -1,0 +1,43 @@
+4.
+
+#include <iostream>
+#include <string>
+#include <cctype> // For isalnum() and tolower()
+using namespace std;
+
+int main() 
+{
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s); 
+    string cleaned;
+    for (char c : s) 
+    {
+        if (isalnum(c)) 
+        {
+            cleaned += tolower(c);
+        }
+    }
+
+    int left = 0;
+    int right = cleaned.size() - 1;
+
+    bool isPalindrome = true;
+    while (left < right) {
+        if (cleaned[left] != cleaned[right])
+         {
+            isPalindrome = false;  
+            break;
+        }
+        left++;
+        right--;
+    }
+
+    if (isPalindrome) {
+        cout << "The string is a palindrome." << endl;
+    } else {
+        cout << "The string is not a palindrome." << endl;
+    }
+
+    return 0;
+}
