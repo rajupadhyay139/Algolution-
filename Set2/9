@@ -1,0 +1,51 @@
+
+#include<iostream>
+using namespace std;
+int main()
+{
+   int n;
+   cout<<"Input total no. of days : ";
+   cin>>n;
+   int price[n];
+   cout<<"Enter value in price array : "<<endl;
+   for(int i=1;i<=n;i++)
+   {
+      cin>>price[i];
+   }
+   int min=price[0];
+   int min_index=0;
+   int max=0;
+   int max_index=price[0];
+   for(int i=1;i<n;i++)
+   {
+      if(price[i]<min)
+      {
+          min=price[i];
+          min_index = i;
+      }
+   }
+
+   for(int i=n;i>min_index;i--)
+   {
+      if(price[i]>max)
+      {
+         max=price[i];
+         max_index=i;
+      }
+   }
+
+   int sum = max-min;
+   if(sum <=0)
+   {
+      return 0;
+   }
+   else
+   {
+      cout<<"Buy on "<<min_index<<" & sell on "<<max_index<<endl;
+      cout<<"Profit is "<<sum;
+   }
+
+   return 0;
+}
+
+
