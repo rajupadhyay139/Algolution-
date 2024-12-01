@@ -1,0 +1,49 @@
+
+a#include<iostream>
+using namespace std;
+int sum(int arr[],int l)
+{
+   int length = l;
+   int sum=0;
+   for(int i=0;i<length;i++)
+   {
+      sum += arr[i];
+   }
+   return sum;
+}
+int main()
+{
+  int n;
+  cout<<"Enter size of array : ";
+  cin>>n;
+  cout<<"enter array elements : "<<endl;
+  int array[n];
+  for(int i=0;i<n;i++)
+  {
+   cin>>array[i];
+  } 
+  int k;
+  cout<<endl<<"Enter no. of consequtive no.s : ";
+  cin>>k;
+  int max_sum=0;
+  int subarray[k];
+  for(int i=0 ; (i+k) < n ;i++)
+  {
+   for(int j=i+1;j<(i+k);j++)
+   {
+      
+      subarray[i]=array[i];
+
+   }
+      int x=sum(subarray,k);
+      if(max_sum<x)
+      {
+         x= max_sum;
+      }
+
+  }
+ 
+  cout<<max_sum;
+  return 0;
+}
+
